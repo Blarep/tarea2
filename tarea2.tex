@@ -1,0 +1,66 @@
+\documentclass[spanish, fleqn]{article}
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage{enumitem}
+\usepackage[colorlinks, urlcolor=blue]{hyperref}
+\usepackage{fourier}
+\usepackage[top = 2.5cm, bottom = 2cm, left = 2.5cm, right = 2.5cm]{geometry}
+
+\newcommand{\num}{2}
+
+\title{Estructuras Discretas \\
+       Tarea \#\num \\
+       ``Demuestre que sabe demostrar''}
+\author{Discrete Structure Warriors}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% Pregunta 1 Laura
+\section*{Pregunta 1}
+Demuestre por inducción sobre \(n\) que
+\[
+\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right) = \frac{n+1}{2n}
+\]
+\hfill (30 ptos.)
+
+%% Pregunta 2 Laura
+\section*{Pregunta 2}
+Para vectores \( \vec{x} = (x_1, x_2, x_3, \cdots, x_n) \) se define la norma Euclidiana y la norma Infinita de la siguiente forma:
+\begin{align*}
+	|| \vec{x} ||_2 &= 
+    \left(
+    \sum_{i=1}^{n} | x_i |^2
+    \right)^\frac{1}{2}  = \sqrt{|x_1|^2+|x_2|^2+ ... + |x_n|^2}\\
+    &\\
+    || \vec{x} ||_{\infty} &= 
+    \max_{i=1}^{n} |x_i| =  \max(|x_1|,|x_2|,...,|x_n|) 
+\end{align*}
+
+Considere \(n = 2\). Para cualquier vector \( \vec{x} \), use \textbf{deducción} para mostrar que:
+
+\[
+|| \vec{x} ||_2 \leq \sqrt{n} \cdot  || \vec{x} ||_{\infty}
+\]
+
+\textbf{Pista:} Puede serle útil usar la variable auxiliar \(x_m = \max(|x_1|, |x_2|)\).
+
+\hfill (40 ptos.)
+
+%% Pregunta 3
+\section*{Pregunta 3}
+\begin{enumerate}
+\item Demuestre por contradicción que si una función \(f: \mathcal{R} \rightarrow \mathcal{R}\) estrictamente creciente entonces es inyectiva.\\
+
+\item Elija otro método  (que no sea contradicción) para demostrar lo anterior.
+\end{enumerate}
+
+
+\hfill (30 ptos.)
+
+
+  \vfill\hfill DSW/\LaTeXe
+\end{document}
