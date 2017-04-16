@@ -12,22 +12,28 @@
 \title{Estructuras Discretas \\
        Tarea \#\num \\
        ``Demuestre que sabe demostrar''}
-\author{Discrete Structure Warriors}
+\author{Andrés Navarro \\ (201673001-k)}
 \date{}
 
 \begin{document}
 \maketitle
 \thispagestyle{empty}
 
-% Pregunta 1 Laura
 \section*{Pregunta 1}
 Demuestre por inducción sobre \(n\) que
 \[
 \prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right) = \frac{n+1}{2n}
 \]
-\hfill (30 ptos.)
 
-%% Pregunta 2 Laura
+Para $n=2$
+\begin{align*}
+\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right)=\left( 1 - \frac{1}{2^2} \right)=\left( 1 - \frac{1}{4} \right)=\left(\frac{4-1}{4} \right)=\left( \frac{3}{4} \right)\\
+\textit{Nos podemos percatar que:}\\
+\frac{3}{4}=\frac{2+1}{2*2}\\
+\textit{Por lo que si se cumple el caso base.}\\
+\end{align*}
+
+
 \section*{Pregunta 2}
 Para vectores \( \vec{x} = (x_1, x_2, x_3, \cdots, x_n) \) se define la norma Euclidiana y la norma Infinita de la siguiente forma:
 \begin{align*}
@@ -48,9 +54,7 @@ Considere \(n = 2\). Para cualquier vector \( \vec{x} \), use \textbf{deducción
 
 \textbf{Pista:} Puede serle útil usar la variable auxiliar \(x_m = \max(|x_1|, |x_2|)\).
 
-\hfill (40 ptos.)
 
-%% Pregunta 3
 \section*{Pregunta 3}
 \begin{enumerate}
 \item Demuestre por contradicción que si una función \(f: \mathcal{R} \rightarrow \mathcal{R}\) estrictamente creciente entonces es inyectiva.\\
@@ -58,9 +62,4 @@ Considere \(n = 2\). Para cualquier vector \( \vec{x} \), use \textbf{deducción
 \item Elija otro método  (que no sea contradicción) para demostrar lo anterior.
 \end{enumerate}
 
-
-\hfill (30 ptos.)
-
-
-  \vfill\hfill DSW/\LaTeXe
 \end{document}
