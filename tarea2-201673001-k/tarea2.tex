@@ -1,0 +1,169 @@
+\documentclass[spanish, fleqn]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[colorlinks, urlcolor=blue]{hyperref}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage[top = 2.5cm, bottom = 2cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage{cancel}
+\setlength{\parskip}{4mm}
+\pagestyle{empty}
+
+\newcommand{\num}{2}
+
+\title{Estructuras Discretas \\
+       Tarea \#\num \\
+       ``Demuestre que sabe demostrar''}
+\author{Andrés Navarro \\ (201673001-k)}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Pregunta 1}
+Demuestre por inducción sobre \(n\) que
+\[
+\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right) = \frac{n+1}{2n}
+\]
+\begin{itemize}
+\item Para $n=2$:
+\begin{align*}
+\hspace{-0.7cm}\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right)=\left( 1 - \frac{1}{2^2} \right)=\left( 1 - \frac{1}{4} \right)=\left(\frac{4-1}{4} \right)=\left( \frac{3}{4} \right)
+\end{align*}
+
+Dado que:
+\begin{align*}
+\hspace{-0.7cm}\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right) = \frac{n+1}{2n} = \frac{2+1}{2 \cdot 2} = \frac{3}{4}
+\end{align*}
+$\therefore $ Si se cumple el caso base.
+\item Suponemos que para $n=m$ esto es verdadero:
+\begin{align*}
+\hspace{-0.7cm}\prod_{2 \leq k \leq m} \left( 1 - \frac{1}{k^2} \right) = \frac{m+1}{2m}
+\end{align*}
+\item Entonces, para $n=m+1$:
+\begin{flalign*}
+\prod_{2 \leq k \leq m+1} \left( 1 - \frac{1}{k^2} \right) &= \prod_{2 \leq k \leq m} \left( 1 - \frac{1}{k^2} \right) \cdot \left( 1 - \frac{1}{(m+1)^2} \right)&\\
+&=\frac{m+1}{2m} \cdot \left( 1 - \frac{1}{(m+1)^2} \right)&\\
+&=\frac{\cancel{m+1}}{2m} \cdot \left(\frac{(m+1)^2-1}{(m+1)^{\cancel{2}}} \right)&\\
+&=\frac{m^2+2m+\cancel{1}-\cancel{1}}{2m \cdot (m+1)}&\\
+&=\frac{\cancel{m}\cdot(m+2)}{2\cancel{m} \cdot (m+1)}&\\
+&=\frac{m+2}{2m+2}&
+\end{flalign*}
+Esto es precisamente la proposición para n=m+1:
+\begin{align*}
+\hspace{-0.7cm}\prod_{2 \leq k \leq m+1} \left( 1 - \frac{1}{k^2} \right)  = \frac{n+1}{2n}=\frac{(m+1)+1}{2(m+1)} = \frac{m+2}{2m+2}
+\end{align*}
+\end{itemize}
+
+$\therefore$ Queda demostrado por inducción que:
+\[
+\prod_{2 \leq k \leq n} \left( 1 - \frac{1}{k^2} \right) = \frac{n+1}{2n}
+\]
+
+
+\section*{Pregunta 2}
+Para vectores \( \vec{x} = (x_1, x_2, x_3, \cdots, x_n) \) se define la norma Euclidiana y la norma Infinita de la siguiente forma:
+\begin{align*}
+	|| \vec{x} ||_2 &= 
+    \left(
+    \sum_{i=1}^{n} | x_i |^2
+    \right)^\frac{1}{2}  = \sqrt{|x_1|^2+|x_2|^2+ ... + |x_n|^2}\\
+    &\\
+    || \vec{x} ||_{\infty} &= 
+    \max_{i=1}^{n} |x_i| =  \max(|x_1|,|x_2|,...,|x_n|) 
+\end{align*}
+
+Considere \(n = 2\). Para cualquier vector \( \vec{x} \), use \textbf{deducción} para mostrar que:
+$|| \vec{x} ||_2 \leq \sqrt{n} \cdot  || \vec{x} ||_{\infty}$.
+
+\textbf{Pista:} Puede serle útil usar la variable auxiliar \(x_m = \max(|x_1|, |x_2|)\).
+
+Para n=2 tenemos:
+\begin{align*}
+	&|| \vec{x} ||_2 = \left( \sum_{i=1}^{2} | x_i |^2 \right)^\frac{1}{2}  = \sqrt{|x_1|^2+|x_2|^2}\\
+    &|| \vec{x} ||_{\infty} =  \max_{i=1}^{2} |x_i| =  \max(|x_1|,|x_2|)=x_m 
+\end{align*}
+
+Luego:
+\begin{align*}
+|| \vec{x} ||_2 \leq \sqrt{n} \cdot  || \vec{x} ||_{\infty}\Rightarrow \sqrt{|x_1|^2+|x_2|^2}&\leq\sqrt{2}\cdot x_m&\\
+\sqrt{|x_1|^2+|x_2|^2}&\leq\sqrt{2}\cdot x_m \hspace{1cm}/()^2&\\
+|x_1|^2+|x_2|^2&\leq2\cdot (x_m)^2&
+\end{align*}
+
+En el caso de que $x_1$ sea el máximo ($x_m$):
+\begin{align*}
+|x_1|^2+|x_2|^2&\leq2\cdot |x_1|^2&\\
+|x_2|^2&\leq|x_1|^2 \hspace{1cm}/()^{1/2}&\\
+|x_2| &\leq|x_1|
+\end{align*}
+
+Lo que es cierto ya que $|x_1|$ es el máximo entre $|x_1|$ y $|x_2|$
+
+Análogamente, si $x_2$ es el máximo, llegamos a otra desigualdad que también es verdadera:
+\begin{align*}
+|x_1|^2+|x_2|^2&\leq2\cdot |x_2|^2&\\
+|x_1|^2&\leq|x_2|^2 \hspace{1cm}/()^{1/2}&\\
+|x_1|&\leq|x_2|
+\end{align*}
+
+$\therefore$ Para n=2 queda demostrado por deducción que:
+
+\hspace{0.4cm}$|| \vec{x} ||_2 \leq \sqrt{n} \cdot  || \vec{x} ||_{\infty}$
+
+\section*{Pregunta 3}
+\begin{enumerate}
+\item Demuestre por contradicción que si una función \(f: \mathcal{R} \rightarrow \mathcal{R}\) estrictamente creciente entonces es inyectiva.
+
+Sea $x_1,x_2\in Dom(f)$
+
+Se tiene que:
+\begin{align*}
+f \textit{es estrictamente creciente} &\Rightarrow f \textit{es inyectiva}\\
+\underbrace{(x_1 < x_2 \Rightarrow f(x_1)< f(x_2))}_{p}&\Rightarrow  \underbrace{(\underbrace{x_1\neq x_2}_{r} \Rightarrow \underbrace{f(x_1)\neq f(x_2)}_{s})}_{q}\\
+p &\Rightarrow q\\
+&\Downarrow \textit{negando la implicancia}\\
+\neg (p&\Rightarrow q)\\
+p &\wedge \neg q \\
+p &\wedge \neg (r \Rightarrow s)\\
+p &\wedge r \wedge \neg s\\
+&\Downarrow \textit{reemplazando las proposiciones}\\
+(x_1 < x_2 \Rightarrow f(x_1)< f(x_2))&\wedge x_1\neq x_2 \wedge f(x_1)= f(x_2)
+\end{align*}
+
+Luego de obtener esto, se llega a un absurdo, dado que para dos números, $x_1$ y $x_2$, siendo $x_1$ menor (y obviamente distinto) que $x_2$, se debería cumplir que $f(x_1)$ sea igual a $f(x_2)$ y que simultáneamente $f(x_1)$ sea menor a $f(x_2)$, situación que no puede ocurrir.
+
+$\therefore$ Queda demostrado por contradicción que:
+
+$\hspace{0.4cm} f \textit{es estrictamente creciente} \Rightarrow f \textit{es inyectiva}$
+ 
+\item Elija otro método  (que no sea contradicción) para demostrar lo anterior.
+
+Por deducción:
+
+Sea $x_1,x_2\in Dom(f)$
+
+Suponemos que $x_1<x_2$
+
+Entonces, se tiene que:
+\begin{align*}
+f \textit{es estrictamente creciente} &\Rightarrow f \textit{es inyectiva}\\
+\underbrace{(x_1 < x_2 \Rightarrow f(x_1)< f(x_2))}_{p}&\Rightarrow \underbrace{(x_1\neq x_2\Rightarrow f(x_1)\neq f(x_2))}_{q}\\
+\end{align*}
+Dada la informacion de $p$(condiciones para que la función sea estrictamente creciente), podemos decir lo siguiente:
+
+-Si $x_1<x_2$, se tiene que $x_1 \neq x_2$.
+
+-Si $f(x_1)<f(x_2)$, se tiene que $f(x_1) \neq f(x_2)$
+
+Con esto, se tiene que $q$ es consecuencia lógica de $p$:
+
+$\therefore$ Queda demostrado por deducción que:
+
+$\hspace{0.4cm} f \textit{es estrictamente creciente} \Rightarrow f \textit{es inyectiva}$
+\end{enumerate}
+
+\end{document}
